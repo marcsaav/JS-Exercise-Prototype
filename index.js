@@ -112,10 +112,10 @@ Baby.prototype.play = function() {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1.
-  2.
-  3.
-  4.
+  1. If "this" is not given reference in the function, it defaults to referencing the entirety of the window; unless in strict mode, where it returns as undefined.
+  2. When inside a method in an object, "this" references to the object.
+  3. When calling, applying, or binding a function to an object, "this" refers to the object the function invoked uses as an argument.
+  4. When using the new keyword to construct an object, "this" references the newly created object.
 */
 
 
