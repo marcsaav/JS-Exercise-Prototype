@@ -85,11 +85,16 @@ Car.prototype.fill = function(gallons) {
 }
 
 Car.prototype.drive = function(distance) {
-  this.odometer = this.odometer + distance;
   this.tank = this.tank - (distance/this.milesPerGallon);
-  if (this.tank === 0) {
+  // When the tank is < 0 there is still distance being added to the odometer
+  // We need to figure out how to take away that extra distance
+  // Car goes 200 miles and runs out of gas, why does odometer go up?
+  if (this.tank <= 0) {
+    this.odometer = distance + (this.tank*this.milesPerGallon);
+    this.tank = 0;
     return `I ran out of fuel at ${this.odometer} miles!`;
   }
+  this.odometer = this.odometer + distance;
 }
 /*
   TASK 3
